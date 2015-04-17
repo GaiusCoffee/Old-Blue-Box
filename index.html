@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Application</title>
-    <meta charset="utf-8">
-    <script src="assets/webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href="assets/app-router/app-router.html">
+  <meta charset="utf-8">
+  <title>My Application</title>
+  <!-- conditionally load polyfills - thanks to https://github.com/geelen/x-gif -->
+  <script>
+  if ('registerElement' in document
+  && 'createShadowRoot' in HTMLElement.prototype
+  && 'import' in document.createElement('link')
+  && 'content' in document.createElement('template')) {
+  } else {
+    document.write('<script src="assets/webcomponentsjs/webcomponents.min.js"><\/script>');
+  }
+  </script>
+  <link rel="import" href="assets/app-router/app-router.html">
 </head>
 <body>
   <app-router>
-    <app-route path="/" import="/pages/page-home.html"></app-route>
+    <app-route path="/" import="pages/page-home.html"></app-route>
   </app-router>
 </body>
 </html>
