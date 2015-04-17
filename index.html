@@ -16,8 +16,9 @@
   <link rel="import" href="assets/app-router/app-router.html">
 </head>
 <body>
-  <app-router>
+  <app-router mode="hash">
     <app-route path="/" import="pages/page-home.html"></app-route>
+    <app-route path="*" redirect="/"></app-route>
   </app-router>
 </body>
 </html>
